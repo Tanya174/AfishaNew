@@ -46,6 +46,22 @@ public class AfishaManagerTest {
     }
 
     @Test
+    public void shouldFindLastAboveLimit() {
+        AfishaManager afisha = new AfishaManager(5);
+        afisha.addFilm("film1");
+        afisha.addFilm("film2");
+        afisha.addFilm("film3");
+        afisha.addFilm("film4");
+        afisha.addFilm("film5");
+        afisha.addFilm("film6");
+
+        String[] expected = {"film6", "film5", "film4", "film3", "film2"};
+        String[] actual = afisha.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void shouldFindLast() {
         AfishaManager afisha = new AfishaManager();
         afisha.addFilm("film1");
